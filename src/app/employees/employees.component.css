@@ -1,0 +1,15 @@
+* {
+    font-size: 11px;
+}
+
+.container {
+    padding-top: 10px;
+}
+
+.paginate_button .current {
+    border-radius: 50px;
+}
+
+tr:hover {
+    background-color: rgb(254, 196, 196);
+}

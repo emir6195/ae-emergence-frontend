@@ -1,0 +1,31 @@
+<div class="container">
+    <table id="employees" class="table table-striped" style="width:100%">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Surname</th>
+                <th>MSISDN</th>
+                <th>City</th>
+                <th>District</th>
+                <th>Address</th>
+                <th>Emergency Contact Name</th>
+                <th>Emergency Contact Surname</th>
+                <th>Emergency Contact MSISDN</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let employee of employees">
+                <td>{{employee.name}}</td>
+                <td>{{employee.surname}}</td>
+                <td>{{employee.msisdn}}</td>
+                <td>{{employee.city}}</td>
+                <td>{{employee.district}}</td>
+                <td>{{employee.address}}</td>
+                <td>{{employee.emergency_contact_name}}</td>
+                <td>{{employee.emergency_contact_surname}}</td>
+                <td>{{employee.emergency_contact_msisdn}}</td>
+            </tr>
+        </tbody>
+    </table>
+
+</div>
