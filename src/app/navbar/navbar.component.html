@@ -1,8 +1,16 @@
 <nav class="navbar bg-body-tertiary">
     <div class="container-fluid">
-        <a class="navbar-brand">Dashboard</a>
+        <div *ngIf="router.url == '/employees'">
+            <a class="navbar-brand iyi-title">Employees</a>
+            <a class="navbar-brand iyi-action"><img src="/assets/upload.svg" alt="upload">Import Data</a>
+            <a class="navbar-brand iyi-action"><img src="/assets/download.svg" alt="download">Export Data</a>
+            <a class="navbar-brand iyi-action"><img src="/assets/person_add.svg" alt="person_add">Add Data</a>
+        </div>
+        <div *ngIf="router.url == '/dashboard'">
+            <a class="navbar-brand">Dashboard</a>
+        </div>
         <div class="d-flex">
-            <a class="nav-link" (click)="logout()" >Logout</a>
+            <a class="nav-link" (click)="logout()"><img src="/assets/logout.svg" alt="logout">Logout</a>
         </div>
     </div>
 </nav>

@@ -13,3 +13,7 @@
 tr:hover {
     background-color: rgb(254, 196, 196);
 }
+
+img {
+    height: 15px;
+}

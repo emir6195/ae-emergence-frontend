@@ -5,3 +5,23 @@ a {
 .nav-link {
     cursor: pointer;
 }
+
+li {
+    float: right;
+}
+
+img {
+    height: 20px;
+    margin-right: 5px;
+    margin-bottom: 3px;
+}
+
+.iyi-title {
+    color: #ea868f;
+    font-weight: 800;
+    margin-right: 30px;
+}
+
+.iyi-action {
+    cursor: pointer;
+}
