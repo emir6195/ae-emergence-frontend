@@ -20,7 +20,6 @@ export class EmployeesComponent implements OnInit {
   getEmployees() {
     this.employeesService.getEmployees().subscribe(
       (data) => {
-        console.log(data);
         this.employees = data
         setTimeout(() => {
           $('#employees').DataTable();

@@ -15,4 +15,8 @@ export class EmployeesService {
   getEmployees() {
     return this.http.get(this.base_url + this.path);
   }
+
+  addEmployees(data:any) {
+    return this.http.post(this.base_url + this.path, data);
+  }
 }

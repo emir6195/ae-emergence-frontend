@@ -4,7 +4,7 @@
             <a class="navbar-brand iyi-title">Employees</a>
             <a class="navbar-brand iyi-action"><img src="/assets/upload.svg" alt="upload">Import Data</a>
             <a class="navbar-brand iyi-action"><img src="/assets/download.svg" alt="download">Export Data</a>
-            <a class="navbar-brand iyi-action"><img src="/assets/person_add.svg" alt="person_add">Add Data</a>
+            <a class="navbar-brand iyi-action" (click)="openAddEmployeeDialog()"><img src="/assets/person_add.svg" alt="person_add">Add Data</a>
         </div>
         <div *ngIf="router.url == '/dashboard'">
             <a class="navbar-brand">Dashboard</a>

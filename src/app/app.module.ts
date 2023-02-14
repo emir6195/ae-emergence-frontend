@@ -15,6 +15,11 @@ import { SendSmsComponent } from './send-sms/send-sms.component';
 import { DataTablesModule } from 'angular-datatables';
 import {  HttpClientModule } from '@angular/common/http';
 import { FooterComponent } from './footer/footer.component';
+import { EmployeeModalComponent } from './modals/employee-modal/employee-modal.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatDialogModule, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import {MatButtonModule} from '@angular/material/button';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -29,15 +34,29 @@ import { FooterComponent } from './footer/footer.component';
     OutgoingSmsComponent,
     SendSmsComponent,
     FooterComponent,
+    EmployeeModalComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     NgbModule,
     DataTablesModule,
-    HttpClientModule
+    HttpClientModule,
+    BrowserAnimationsModule,
+    MatDialogModule,
+    MatButtonModule,
+    FormsModule
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  providers: [
+    {
+      provide: MatDialogRef,
+      useValue: {}
+    },
+    {
+      provide: MAT_DIALOG_DATA,
+      useValue: {}
+    }
+  ],
+  bootstrap: [AppComponent],
 })
 export class AppModule { }
