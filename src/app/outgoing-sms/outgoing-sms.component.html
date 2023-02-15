@@ -1,1 +1,24 @@
-<p>outgoing-sms works!</p>
+<div class="container">
+    <table id="outgoing-sms" class="table table-striped" style="width:100%">
+        <thead>
+            <tr>
+                <th>Date</th>
+                <th>From</th>
+                <th>To</th>
+                <th>Name</th>
+                <th>Surname</th>
+                <th>Message</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let message of outgoingMessages">
+                <td>{{message.createdAt}}</td>
+                <td>{{message.from}}</td>
+                <td>{{message.to}}</td>
+                <td>{{message.name}}</td>
+                <td>{{message.surname}}</td>
+                <td>{{message.message}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>

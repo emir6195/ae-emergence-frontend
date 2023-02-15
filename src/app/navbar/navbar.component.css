@@ -28,3 +28,7 @@ img {
 .iyi-action {
     cursor: pointer;
 }
+
+.navbar {
+    height: 60px;
+}
