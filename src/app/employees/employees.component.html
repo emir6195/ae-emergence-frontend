@@ -25,7 +25,14 @@
                 <td>{{employee.emergency_contact_name}}</td>
                 <td>{{employee.emergency_contact_surname}}</td>
                 <td>{{employee.emergency_contact_msisdn}}</td>
-                <td><button class="btn btn-outline-danger"><img src="/assets/delete.svg" alt="delete"></button></td>
+                <td>
+                    <div class="btn-group">
+                        <button class="btn btn-outline-danger"><img src="/assets/edit.svg" alt="edit"
+                                (click)="openEditEmployeeDialog(employee)"></button>
+                        <button class="btn btn-outline-danger"><img src="/assets/delete.svg" alt="delete"
+                                (click)="deleteEmployees(employee._id)"></button>
+                    </div>
+                </td>
             </tr>
         </tbody>
     </table>

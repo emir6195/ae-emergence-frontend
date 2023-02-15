@@ -1,0 +1,13 @@
+<h1 mat-dialog-title>Import Employee</h1>
+<div mat-dialog-content>
+    <div class="input-group mb-3">
+        <div class="input-group mb-3">
+            <label class="input-group-text" for="file">Upload</label>
+            <input type="file" class="form-control" id="file" (change)="handleFileInput($any($event).target.files)">
+        </div>
+    </div>
+    <div mat-dialog-actions align="end">
+        <button mat-button mat-dialog-close>Cancel</button>
+        <button mat-button [mat-dialog-close]="true" cdkFocusInitial (click)="submit()">Submit</button>
+    </div>
+</div>

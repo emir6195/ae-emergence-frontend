@@ -20,6 +20,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatDialogModule, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import {MatButtonModule} from '@angular/material/button';
 import { FormsModule } from '@angular/forms';
+import { ImportEmployeesComponent } from './modals/import-employees/import-employees.component';
 
 
 @NgModule({
@@ -35,6 +36,7 @@ import { FormsModule } from '@angular/forms';
     SendSmsComponent,
     FooterComponent,
     EmployeeModalComponent,
+    ImportEmployeesComponent,
   ],
   imports: [
     BrowserModule,
@@ -55,7 +57,7 @@ import { FormsModule } from '@angular/forms';
     {
       provide: MAT_DIALOG_DATA,
       useValue: {}
-    }
+    },
   ],
   bootstrap: [AppComponent],
 })

@@ -18,8 +18,11 @@ img {
 
 .iyi-title {
     color: #ea868f;
-    font-weight: 800;
     margin-right: 30px;
+    border: #ea868f;
+    border-style: outset;
+    border-radius: 50px;
+    padding: 7px;
 }
 
 .iyi-action {
