@@ -1,0 +1,7 @@
+.container {
+    height: calc(100% - 65px);
+}
+
+.chart {
+    max-width: 75%;
+}

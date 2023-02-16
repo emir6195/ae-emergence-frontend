@@ -1,9 +1,11 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { EmployeeModalComponent } from '../modals/employee-modal/employee-modal.component';
-import {MatDialog} from '@angular/material/dialog';
+import { MatDialog } from '@angular/material/dialog';
 import { SharedService } from '../services/shared.service';
 import { ImportEmployeesComponent } from '../modals/import-employees/import-employees.component';
+import { MatDatepickerInputEvent } from '@angular/material/datepicker';
+import { FormControl, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-navbar',
@@ -12,9 +14,15 @@ import { ImportEmployeesComponent } from '../modals/import-employees/import-empl
 })
 export class NavbarComponent {
 
-  constructor(public router: Router, public dialog: MatDialog, private sharedService : SharedService) { }
+  constructor(public router: Router, public dialog: MatDialog, private sharedService: SharedService) { }
 
-  downloadUrl : string = 'http://127.0.0.1:3000/download-employees';
+  downloadUrl: string = 'http://127.0.0.1:3000/download-employees';
+  matStartDate: any;
+  matEndDate: any;
+  range = new FormGroup({
+    start: new FormControl<Date | null>(null),
+    end: new FormControl<Date | null>(null),
+  });
 
   logout() {
     console.log('logout');
@@ -34,7 +42,7 @@ export class NavbarComponent {
   openImportEmployeeDialog(): void {
     const dialogRef = this.dialog.open(ImportEmployeesComponent, {
       width: '70vh',
-      data : {}
+      data: {}
     });
     dialogRef.afterClosed().subscribe(result => {
       console.log(`Dialog result: ${result}`);
@@ -44,6 +52,8 @@ export class NavbarComponent {
 
   triggerRefreshEmployees() {
     this.sharedService.refreshEmployees();
-  } 
+  }
+
+
 
 }

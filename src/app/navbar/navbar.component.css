@@ -23,6 +23,7 @@ img {
     border-style: outset;
     border-radius: 50px;
     padding: 7px;
+    display: none;
 }
 
 .iyi-action {
@@ -30,5 +31,10 @@ img {
 }
 
 .navbar {
-    height: 60px;
+    height: 75px;
+}
+
+mat-form-field {
+    position: absolute;
+    top: 10px;
 }

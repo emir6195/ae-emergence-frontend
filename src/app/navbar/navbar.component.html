@@ -2,12 +2,26 @@
     <div class="container-fluid">
         <div *ngIf="router.url == '/employees'">
             <a class="navbar-brand iyi-title">Employees</a>
-            <a class="navbar-brand iyi-action" (click)="openImportEmployeeDialog()"><img src="/assets/upload.svg" alt="upload">Import Data</a>
-            <a class="navbar-brand iyi-action" href="{{downloadUrl}}"><img src="/assets/download.svg" alt="download">Export Data</a>
-            <a class="navbar-brand iyi-action" (click)="openAddEmployeeDialog()"><img src="/assets/person_add.svg" alt="person_add">Add Data</a>
+            <a class="navbar-brand iyi-action" (click)="openImportEmployeeDialog()"><img src="/assets/upload.svg"
+                    alt="upload">Import Data</a>
+            <a class="navbar-brand iyi-action" href="{{downloadUrl}}"><img src="/assets/download.svg"
+                    alt="download">Export Data</a>
+            <a class="navbar-brand iyi-action" (click)="openAddEmployeeDialog()"><img src="/assets/person_add.svg"
+                    alt="person_add">Add Data</a>
         </div>
         <div *ngIf="router.url == '/dashboard'">
-            <a class="navbar-brand iyi-title">Dashboard</a>
+            <!-- <a class="navbar-brand iyi-title">Dashboard</a> -->
+            <a class="navbar-brand date-picker">
+                <mat-form-field appearance="outline">
+                    <mat-label>Enter a date range</mat-label>
+                    <mat-date-range-input [rangePicker]="picker" [formGroup]="range">
+                        <input matStartDate formControlName="start" placeholder="Start date">
+                        <input matEndDate formControlName="end" placeholder="End date">
+                    </mat-date-range-input>
+                    <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                    <mat-date-range-picker #picker></mat-date-range-picker>
+                </mat-form-field>
+            </a>
         </div>
         <div *ngIf="router.url == '/incoming-sms'">
             <a class="navbar-brand iyi-title">Incoming SMS</a>

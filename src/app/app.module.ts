@@ -19,9 +19,14 @@ import { EmployeeModalComponent } from './modals/employee-modal/employee-modal.c
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatDialogModule, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import {MatButtonModule} from '@angular/material/button';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ImportEmployeesComponent } from './modals/import-employees/import-employees.component';
-
+import { SmsChartComponent } from './charts/sms-chart/sms-chart.component';
+import { NgChartsModule } from 'ng2-charts';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import { MatNativeDateModule } from '@angular/material/core';
+import { MatMomentDateModule } from "@angular/material-moment-adapter";
 
 @NgModule({
   declarations: [
@@ -37,6 +42,7 @@ import { ImportEmployeesComponent } from './modals/import-employees/import-emplo
     FooterComponent,
     EmployeeModalComponent,
     ImportEmployeesComponent,
+    SmsChartComponent,
   ],
   imports: [
     BrowserModule,
@@ -47,7 +53,15 @@ import { ImportEmployeesComponent } from './modals/import-employees/import-emplo
     BrowserAnimationsModule,
     MatDialogModule,
     MatButtonModule,
-    FormsModule
+    FormsModule,
+    NgChartsModule,
+    MatDatepickerModule,
+    MatFormFieldModule,
+    MatNativeDateModule,
+    MatMomentDateModule,
+    MatNativeDateModule,
+    MatButtonModule,
+    ReactiveFormsModule
   ],
   providers: [
     {
