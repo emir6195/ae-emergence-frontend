@@ -3,5 +3,28 @@
 }
 
 .chart {
-    max-width: 75%;
+    height: 280px;
+}
+
+.safe {
+    background-color: rgb(188, 232, 188, 0.5);
+}
+
+.unsafe {
+    background-color: rgba(252, 154, 154, 0.5);
+}
+
+.iyi-data {
+    height: 250px;
+    overflow: auto;
+}
+
+.iyi-data::-webkit-scrollbar {
+    display: none;
+}
+
+.pie-container {
+    width: 50%;
+    position: absolute;
+    left: 25%;
 }

@@ -24,12 +24,52 @@
                 </div>
             </div>
         </div>
+        <div class="col">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Count of People in Safe</h5>
+                    <p class="card-text">{{peopleSafeCount}}</p>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Count of People Unsafe</h5>
+                    <p class="card-text">{{peopleUnsafeCount}}</p>
+                </div>
+            </div>
+        </div>
     </div>
     <div class="row mt-3">
-        <div class="col-md-1"></div>
-        <div class="col chart">
-            <app-sms-chart [barChartLabels]="barChartLabels" [barChartData]="barChartData"></app-sms-chart>
+        <div class="col">
+            <div class="card safe iyi-data">
+                <div class="card-body">
+                    <app-people-safe [outgoingMessages]="peopleSafe"></app-people-safe>
+                </div>
+            </div>
         </div>
-        <div class="col-md-1"></div>
+        <div class="col">
+            <div class="card unsafe iyi-data">
+                <div class="card-body">
+                    <app-people-unsafe [outgoingMessages]="peopleUnsafe"></app-people-unsafe>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row mt-3">
+        <div class="col">
+            <div class="card chart">
+                <app-sms-chart [barChartLabels]="barChartLabels" [barChartData]="barChartData"></app-sms-chart>
+            </div>
+        </div>
+        <div class="col">
+            <div class="card chart">
+                <div class="pie-container">
+                    <app-safety-chart [barChartLabels]="pieChartLabels"
+                        [barChartData]="pieChartData"></app-safety-chart>
+                </div>
+            </div>
+        </div>
     </div>
 </div>

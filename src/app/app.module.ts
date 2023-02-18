@@ -27,6 +27,9 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatMomentDateModule } from "@angular/material-moment-adapter";
+import { PeopleSafeComponent } from './charts/people-safe/people-safe.component';
+import { PeopleUnsafeComponent } from './charts/people-unsafe/people-unsafe.component';
+import { SafetyChartComponent } from './charts/safety-chart/safety-chart.component';
 
 @NgModule({
   declarations: [
@@ -43,6 +46,9 @@ import { MatMomentDateModule } from "@angular/material-moment-adapter";
     EmployeeModalComponent,
     ImportEmployeesComponent,
     SmsChartComponent,
+    PeopleSafeComponent,
+    PeopleUnsafeComponent,
+    SafetyChartComponent,
   ],
   imports: [
     BrowserModule,

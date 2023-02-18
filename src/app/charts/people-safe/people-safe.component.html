@@ -1,0 +1,16 @@
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Employees in safe</th>
+            <th scope="col">MSISDN</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let outgoingMessage of outgoingMessages; index as i">
+            <th scope="row">{{i + 1 }}</th>
+            <td>{{outgoingMessage.employee}}</td>
+            <td>{{outgoingMessage.to}}</td>
+        </tr>
+    </tbody>
+</table>

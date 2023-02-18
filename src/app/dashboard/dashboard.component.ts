@@ -9,13 +9,20 @@ import { StatsService } from '../services/stats.service';
 })
 export class DashboardComponent implements OnInit {
 
-  constructor(private statsService: StatsService) {}
+  constructor(private statsService: StatsService) { }
 
   barChartLabels: any;
   barChartData: ChartDataset[] | undefined
   countOfEmployees: any;
   countOfIncomingMessages: any;
   countOfOutgoingMessages: any;
+  outgoingMessages?: OutgoingSmsModal[];
+  peopleSafe?: OutgoingSmsModal[];
+  peopleSafeCount?: any;
+  peopleUnsafe?: OutgoingSmsModal[];
+  peopleUnsafeCount?: any;
+  pieChartLabels?: any = ['Unsafe', 'Safe'];
+  pieChartData: ChartDataset[] | undefined;
 
   ngOnInit() {
     this.getStats();
@@ -28,6 +35,17 @@ export class DashboardComponent implements OnInit {
       this.countOfEmployees = data.countOfEmployees;
       this.countOfIncomingMessages = data.countOfIncomingMessages;
       this.countOfOutgoingMessages = data.countOfOutgoingMessages;
+      this.outgoingMessages = data.outgoingMessages;
+      this.peopleSafe = data.outgoingMessages.filter(el => el.isAnswered == true);
+      this.peopleSafeCount = this.peopleSafe.length;
+      this.peopleUnsafe = data.outgoingMessages.filter(el => el.isAnswered == false);
+      this.peopleUnsafeCount = this.peopleUnsafe.length;
+      this.pieChartData = [
+        {
+          label : 'Safety',
+          data: [this.peopleUnsafeCount, this.peopleSafeCount]
+        }
+      ]
     })
   }
 
@@ -38,4 +56,13 @@ export class DashboardComponent implements OnInit {
 
 }
 
-
+export interface OutgoingSmsModal {
+  from: string;
+  to: string;
+  employee: string;
+  message: string;
+  createdAt: Date;
+  isAnswered: boolean;
+  _id: string;
+  __v: number;
+}

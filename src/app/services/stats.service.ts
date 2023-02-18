@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { ChartDataset } from 'chart.js';
+import { OutgoingSmsModal } from '../dashboard/dashboard.component';
 
 
 @Injectable({
@@ -27,4 +28,6 @@ export interface RootObject {
   countOfIncomingMessages: number;
   countOfOutgoingMessages: number;
   dataset: ChartDataset[];
+  outgoingMessages : OutgoingSmsModal[];
 }
+
