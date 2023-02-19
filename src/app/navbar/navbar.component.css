@@ -31,10 +31,19 @@ img {
 }
 
 .navbar {
-    height: 75px;
+    height: 50px;
 }
 
 mat-form-field {
     position: absolute;
     top: 10px;
 }
+
+.checkbox-margin {
+    margin-right: 15px;
+}
+
+.apply-filter {
+    margin-left: 18px;
+}
+

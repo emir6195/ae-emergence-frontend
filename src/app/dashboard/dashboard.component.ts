@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ChartDataset } from 'chart.js';
+import { SharedService } from '../services/shared.service';
 import { StatsService } from '../services/stats.service';
 
 @Component({
@@ -9,7 +10,7 @@ import { StatsService } from '../services/stats.service';
 })
 export class DashboardComponent implements OnInit {
 
-  constructor(private statsService: StatsService) { }
+  constructor(private statsService: StatsService, private sharedService: SharedService) { }
 
   barChartLabels: any;
   barChartData: ChartDataset[] | undefined
@@ -23,13 +24,22 @@ export class DashboardComponent implements OnInit {
   peopleUnsafeCount?: any;
   pieChartLabels?: any = ['Unsafe', 'Safe'];
   pieChartData: ChartDataset[] | undefined;
+  start : any;
+  end: any;
 
   ngOnInit() {
     this.getStats();
+    this.sharedService.dateObsSource.subscribe((daterange: any) => {
+      if (daterange != 'start') {
+        this.start = daterange.split(',')[0];
+        this.end = daterange.split(',')[1];
+        this.getStats();
+      }
+    })
   }
 
   getStats() {
-    this.statsService.getStats().subscribe(data => {
+    this.statsService.getStats(this.start, this.end).subscribe(data => {
       this.barChartLabels = data.date_labels;
       this.barChartData = data.dataset;
       this.countOfEmployees = data.countOfEmployees;

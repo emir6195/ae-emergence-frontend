@@ -8,12 +8,16 @@ import { HttpClient } from '@angular/common/http';
 export class EmployeesService {
 
   base_url : string = 'http://127.0.0.1:3000';
-  path: string = '/employees';
+  path: string = '/api/employees';
 
   constructor(private http: HttpClient) {}
 
   getEmployees() {
     return this.http.get(this.base_url + this.path);
+  }
+
+  getFilteredEmployees(filter: string) {
+    return this.http.get(this.base_url + this.path + '?filter=' + JSON.stringify(filter));
   }
 
   addEmployees(data:any) {

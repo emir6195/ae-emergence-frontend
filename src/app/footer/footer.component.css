@@ -4,7 +4,8 @@
 
 footer {
     margin-top: 5px;
-    position: fixed;
-    bottom: 0;
-    width: 80%;
+    /* position: fixed; */
+    /* bottom: 0; */
+    /* width: 80%; */
+    /* display: none; */
 }

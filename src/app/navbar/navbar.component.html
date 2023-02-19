@@ -11,17 +11,12 @@
         </div>
         <div *ngIf="router.url == '/dashboard'">
             <!-- <a class="navbar-brand iyi-title">Dashboard</a> -->
-            <a class="navbar-brand date-picker">
-                <mat-form-field appearance="outline">
-                    <mat-label>Enter a date range</mat-label>
-                    <mat-date-range-input [rangePicker]="picker" [formGroup]="range">
-                        <input matStartDate formControlName="start" placeholder="Start date">
-                        <input matEndDate formControlName="end" placeholder="End date">
-                    </mat-date-range-input>
-                    <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
-                    <mat-date-range-picker #picker></mat-date-range-picker>
-                </mat-form-field>
-            </a>
+            <!-- <input type="text" ngxDaterangepickerMd [(ngModel)]="selected" class="form-control"/> -->
+            <img src="/assets/calendar.svg" alt="upload"><input type="text" matInput ngxDaterangepickerMd [locale]="{applyLabel: 'ok', format: 'DD-MM-YYYY'}"
+                startKey="start" endKey="end" [(ngModel)]="selected" name="daterange" style="margin-right: 15px;width: 165px;"/>
+
+            <a class="navbar-brand iyi-action" (click)="choosedDate()"><img src="/assets/done.svg" alt="upload">Apply
+                Date Filter</a>
         </div>
         <div *ngIf="router.url == '/incoming-sms'">
             <a class="navbar-brand iyi-title">Incoming SMS</a>
@@ -31,7 +26,41 @@
         </div>
         <div *ngIf="router.url == '/send-sms'">
             <a class="navbar-brand iyi-title">Send SMS</a>
+            <!-- dropdown city -->
+            <button mat-button [matMenuTriggerFor]="menu1">
+                <img src="/assets/filter.svg" alt="filter">
+                Select Cities
+            </button>
+            <mat-menu #menu1="matMenu">
+                <button *ngFor="let city of cities; index as i;" mat-menu-item role="menuitemcheckbox"
+                    (click)="$event.stopPropagation()">
+                    <mat-checkbox class="checkbox-margin" (change)="setCity($event.checked, i)">
+                        {{city.name}}
+                    </mat-checkbox>
+                </button>
+                <hr>
+                <button class="btn btn-outline-danger apply-filter" (click)="applyFilter()">Apply Filter</button>
+            </mat-menu>
+            <!-- dropdown-end -->
+
+            <!-- dropdown district -->
+            <button mat-button [matMenuTriggerFor]="menu2">
+                <img src="/assets/filter.svg" alt="filter">
+                Select Districts
+            </button>
+            <mat-menu #menu2="matMenu">
+                <button *ngFor="let district of districts; index as i;" mat-menu-item role="menuitemcheckbox"
+                    (click)="$event.stopPropagation()">
+                    <mat-checkbox class="checkbox-margin" (change)="setDistrict($event.checked, i)">
+                        {{district.name}}
+                    </mat-checkbox>
+                </button>
+                <hr>
+                <button class="btn btn-outline-danger apply-filter" (click)="applyFilter()">Apply Filter</button>
+            </mat-menu>
+            <!-- dropdown-end -->
         </div>
+
         <div *ngIf="router.url == '/outgoing-sms'">
             <a class="navbar-brand iyi-title">Outgoing SMS</a>
         </div>

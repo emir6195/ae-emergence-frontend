@@ -14,7 +14,7 @@ export class StatsService {
   baseUrl : string = 'http://127.0.0.1:3000';
 
   getStats(begin_date?: string, end_date?: string ) {
-    return this.http.post<RootObject>(this.baseUrl + '/stats', {
+    return this.http.post<RootObject>(this.baseUrl + '/api/stats', {
       begin_date : begin_date,
       end_date: end_date
     })

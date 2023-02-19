@@ -1,1 +1,57 @@
-<p>send-sms works!</p>
+<div class="container">
+    <h2>Filters</h2>
+    <mat-chip-set>
+        <!-- <mat-chip class="lead-chip">Filters</mat-chip> -->
+        <mat-chip *ngFor="let chip of chips" color="accent">{{chip}}</mat-chip>
+    </mat-chip-set>
+    <hr>
+    <form>
+        <div class="form-outline mb-4">
+            <!-- <label class="form-label" for="form-message">Message</label> -->
+            <h2>Message</h2>
+            <textarea class="form-control" id="form-message" rows="4" placeholder="Type your message here."></textarea>
+        </div>
+        <button type="submit" class="btn btn-outline-danger btn-block mb-4">
+            <img class="send-icon" src="/assets/send.svg" alt="send">Send to {{employees.length}} employees
+        </button>
+    </form>
+    <hr>
+    <h2>Selected Employees</h2>
+    <table id="employees" class="table table-striped" style="width:100%">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Surname</th>
+                <th>MSISDN</th>
+                <th>City</th>
+                <th>District</th>
+                <th>Address</th>
+                <th>Emergency Contact Name</th>
+                <th>Emergency Contact Surname</th>
+                <th>Emergency Contact MSISDN</th>
+                <!-- <th>Actions</th> -->
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let employee of employees">
+                <td>{{employee.name}}</td>
+                <td>{{employee.surname}}</td>
+                <td>{{employee.msisdn}}</td>
+                <td>{{employee.city}}</td>
+                <td>{{employee.district}}</td>
+                <td>{{employee.address}}</td>
+                <td>{{employee.emergency_contact_name}}</td>
+                <td>{{employee.emergency_contact_surname}}</td>
+                <td>{{employee.emergency_contact_msisdn}}</td>
+                <!-- <td>
+                    <div class="btn-group">
+                        <button class="btn btn-outline-danger"><img src="/assets/edit.svg" alt="edit"
+                                (click)="openEditEmployeeDialog(employee)"></button>
+                        <button class="btn btn-outline-danger"><img src="/assets/delete.svg" alt="delete"
+                                (click)="deleteEmployees(employee._id)"></button>
+                    </div>
+                </td> -->
+            </tr>
+        </tbody>
+    </table>
+</div>

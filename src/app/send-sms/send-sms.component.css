@@ -1,0 +1,28 @@
+mat-chip-set {
+    margin-bottom: 15px;
+}
+
+button {
+    color: black;
+}
+
+mat-chip {
+    background-color: pink !important;
+    color: pink !important
+}
+
+.lead-chip {
+    background-color: transparent !important;
+    color: transparent !important
+}
+
+tr:hover {
+    background-color: rgb(254, 196, 196);
+}
+
+.send-icon {
+    height: 20px;
+    margin-bottom: 2px;
+    margin-right: 10px;
+}
+
