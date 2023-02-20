@@ -5,16 +5,18 @@
         <mat-chip *ngFor="let chip of chips" color="accent">{{chip}}</mat-chip>
     </mat-chip-set>
     <hr>
-    <form>
+    <!-- <form> -->
         <div class="form-outline mb-4">
             <!-- <label class="form-label" for="form-message">Message</label> -->
+            <!-- <h2>Header</h2> -->
             <h2>Message</h2>
+            <input class="form-control mb-2" id="form-message-header" placeholder="Type your header here.">
             <textarea class="form-control" id="form-message" rows="4" placeholder="Type your message here."></textarea>
         </div>
         <button type="submit" class="btn btn-outline-danger btn-block mb-4">
             <img class="send-icon" src="/assets/send.svg" alt="send">Send to {{employees.length}} employees
         </button>
-    </form>
+    <!-- </form> -->
     <hr>
     <h2>Selected Employees</h2>
     <table id="employees" class="table table-striped" style="width:100%">
