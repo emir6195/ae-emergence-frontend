@@ -1,0 +1,23 @@
+.iyi-footer {
+    position: fixed;
+    bottom:0;
+    width: 100%;
+    background-color: #e9868f !important;
+}
+
+.btn-primary {
+    background-color: #e9868f !important;
+    border-color: #e9868f !important;
+}
+
+.iyi-title {
+    color: #e9868f !important;
+}
+
+section {
+    background-color: whitesmoke;
+}
+
+h1 {
+    margin-left: 0px !important;
+}

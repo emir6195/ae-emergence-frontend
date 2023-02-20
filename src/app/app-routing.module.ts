@@ -4,6 +4,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { EmployeesComponent } from './employees/employees.component';
 import { HomeComponent } from './home/home.component';
 import { IncomingSmsComponent } from './incoming-sms/incoming-sms.component';
+import { LoginComponent } from './login/login.component';
 import { OutgoingSmsComponent } from './outgoing-sms/outgoing-sms.component';
 import { SendSmsComponent } from './send-sms/send-sms.component';
 
@@ -31,6 +32,14 @@ const routes: Routes = [
   {
     path: 'send-sms',
     component: SendSmsComponent
+  },
+  {
+    path: 'login',
+    component: LoginComponent
+  },
+  {
+    path: '**',
+    component: DashboardComponent
   }
 ];
 

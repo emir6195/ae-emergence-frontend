@@ -12,7 +12,7 @@ import { IncomingSmsComponent } from './incoming-sms/incoming-sms.component';
 import { OutgoingSmsComponent } from './outgoing-sms/outgoing-sms.component';
 import { SendSmsComponent } from './send-sms/send-sms.component';
 import { DataTablesModule } from 'angular-datatables';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { FooterComponent } from './footer/footer.component';
 import { EmployeeModalComponent } from './modals/employee-modal/employee-modal.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -30,6 +30,8 @@ import { MatMenuModule } from '@angular/material/menu';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatChipsModule } from '@angular/material/chips';
 import { NgxDaterangepickerMd } from 'ngx-daterangepicker-material';
+import { LoginComponent } from './login/login.component';
+import { TokenInterceptorService } from './services/token-interceptor.service';
 
 @NgModule({
   declarations: [
@@ -49,6 +51,7 @@ import { NgxDaterangepickerMd } from 'ngx-daterangepicker-material';
     PeopleSafeComponent,
     PeopleUnsafeComponent,
     SafetyChartComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,
@@ -77,6 +80,11 @@ import { NgxDaterangepickerMd } from 'ngx-daterangepicker-material';
     {
       provide: MAT_DIALOG_DATA,
       useValue: {}
+    },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: TokenInterceptorService,
+      multi: true,
     },
   ],
   bootstrap: [AppComponent],

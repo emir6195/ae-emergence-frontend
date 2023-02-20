@@ -4,20 +4,21 @@ import { EmployeeModalComponent } from '../modals/employee-modal/employee-modal.
 import { MatDialog } from '@angular/material/dialog';
 import { SharedService } from '../services/shared.service';
 import { ImportEmployeesComponent } from '../modals/import-employees/import-employees.component';
-import { Dayjs } from 'dayjs' ;
+import { Dayjs } from 'dayjs';
 import * as dayjs from 'dayjs'
+import { StatsService } from '../services/stats.service';
 
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.css']
 })
-export class NavbarComponent implements OnInit{
+export class NavbarComponent implements OnInit {
 
-  constructor(public router: Router, public dialog: MatDialog, private sharedService: SharedService) {
+  constructor(public router: Router, public dialog: MatDialog, private sharedService: SharedService, private statsService: StatsService) {
     this.selected = {
-      start : dayjs(new Date().getTime() - (1000 * 60 * 60 * 24 * 6)),
-      end : dayjs(new Date().getTime()),
+      start: dayjs(new Date().getTime() - (1000 * 60 * 60 * 24 * 6)),
+      end: dayjs(new Date().getTime()),
     }
   }
 
@@ -31,34 +32,12 @@ export class NavbarComponent implements OnInit{
     'This Month': [dayjs().startOf('month'), dayjs().endOf('month')],
     'Last Month': [dayjs().subtract(1, 'month').startOf('month'), dayjs().subtract(1, 'month').endOf('month')]
   }
-  cities: any = [
-    {
-      name: "İstanbul",
-      selected: false,
-      type:"city"
-    },
-    {
-      name: "Ankara",
-      selected: false,
-      type:"city"
-    }
-  ];
-  districts: any = [
-    {
-      name: "Maltepe",
-      selected: false,
-      type:"district"
-    },
-    {
-      name: "Şişli",
-      selected: false,
-      type:"district"
-    }
-  ];
+  cities: any = [];
+  districts: any = [];
   selectedCities = [];
 
   ngOnInit() {
-    
+    this.getCitiesDistricts();
   }
 
   setCity(completed: boolean, index: number) {
@@ -70,7 +49,8 @@ export class NavbarComponent implements OnInit{
   }
 
   logout() {
-    console.log('logout');
+    localStorage.removeItem('token');
+    this.router.navigateByUrl('/login');
   };
 
   openAddEmployeeDialog(): void {
@@ -99,11 +79,11 @@ export class NavbarComponent implements OnInit{
     this.sharedService.refreshEmployees();
   }
 
-  triggerFilterEmployees(filter:string) {
+  triggerFilterEmployees(filter: string) {
     this.sharedService.filterEmployees(filter);
   }
 
-  triggerRefreshDate(daterange:string) {
+  triggerRefreshDate(daterange: string) {
     this.sharedService.refreshDate(daterange);
   }
 
@@ -118,6 +98,26 @@ export class NavbarComponent implements OnInit{
     var start = this.selected?.start.toISOString().split('T')[0];
     var end = this.selected?.end.toISOString().split('T')[0];
     this.triggerRefreshDate(start + ',' + end);
+  }
+
+
+  getCitiesDistricts() {
+    this.statsService.getCitiesDistricts().subscribe(data => {
+      data.cities.forEach(item => {
+        this.cities.push({
+          type: 'city',
+          name: item,
+          selected: false
+        })
+      });
+      data.districts.forEach(item => {
+        this.districts.push({
+          type: 'district',
+          name: item,
+          selected: false
+        })
+      });
+    })
   }
 
 }

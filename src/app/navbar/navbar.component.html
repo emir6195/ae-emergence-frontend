@@ -20,9 +20,13 @@
         </div>
         <div *ngIf="router.url == '/incoming-sms'">
             <a class="navbar-brand iyi-title">Incoming SMS</a>
+            <a class="navbar-brand"><img src="/assets/incoming.svg"
+                alt="upload">Incoming SMS</a>
         </div>
         <div *ngIf="router.url == '/outgoing-sms'">
             <a class="navbar-brand iyi-title">Outgoing SMS</a>
+            <a class="navbar-brand"><img src="/assets/outgoing.svg"
+                alt="upload">Outgoing SMS</a>
         </div>
         <div *ngIf="router.url == '/send-sms'">
             <a class="navbar-brand iyi-title">Send SMS</a>

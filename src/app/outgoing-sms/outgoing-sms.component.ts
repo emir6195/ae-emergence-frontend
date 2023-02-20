@@ -17,7 +17,6 @@ export class OutgoingSmsComponent implements OnInit {
 
   getOutgoingMessages() {
     return this.smsService.getOutgoingMessages().subscribe(data => {
-      console.log(data);
       this.outgoingMessages = data;
       setTimeout(() => {
         $('#outgoing-sms').DataTable();

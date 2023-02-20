@@ -20,6 +20,10 @@ export class StatsService {
     })
   }
 
+  getCitiesDistricts() {
+    return this.http.get<CitiesDistrictsModal>(this.baseUrl + '/api/cities-districts');
+  }
+
 }
 
 export interface RootObject {
@@ -31,3 +35,7 @@ export interface RootObject {
   outgoingMessages : OutgoingSmsModal[];
 }
 
+export interface CitiesDistrictsModal {
+  cities: string[];
+  districts: string[];
+}
